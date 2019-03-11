@@ -1,5 +1,6 @@
 package com.example.akhil.getworkdone;
 
+import android.content.Intent;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -17,7 +18,6 @@ public class SliderActivity extends AppCompatActivity {
     private TextView[] mdots;
     private Button next,back;
     private int currentPage;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -98,6 +98,12 @@ public class SliderActivity extends AppCompatActivity {
                 back.setVisibility(View.VISIBLE);
                 next.setText("Finish");
                 back.setText("Back");
+                next.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        startActivity(new Intent(SliderActivity.this,LoginActivity.class));
+                    }
+                });
             }else{
                 next.setEnabled(true);
                 back.setEnabled(true);
